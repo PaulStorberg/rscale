@@ -46,6 +46,7 @@ gem "font-awesome-rails" # font-awesome for asset pipeline
 gem 'jquery-rails' # automate using jQuery with Rails
 gem 'select2-rails' # Integrate Select2 javascript library with Rails asset pipeline https://github.com/argerim/select2-rails
 gem 'friendly_id', '~> 5.2.4' # Allows you to create pretty URL’s and work with human-friendly
+gem "webpacker"
 
 # ==============================================================================
 # Forms ========================================================================
