@@ -7,7 +7,7 @@ gem 'rails', '~> 6.1.0'
 
 gem 'aws-sdk-s3'
 gem 'bootsnap', '>= 1.7.0', require: false
-gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap', '~> 4.6.2'
 gem "chartkick"
 gem "cocoon" 
 gem 'coffee-rails', '~> 4.2' 
