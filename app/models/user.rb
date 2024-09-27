@@ -28,8 +28,6 @@ class User < ApplicationRecord
         user_votes << vote
       end
     end
-    if user_votes.count == poll_options.count
-      return true
-    end
+    user_votes.count == poll_options.count
   end
 end

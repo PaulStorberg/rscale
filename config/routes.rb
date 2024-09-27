@@ -1,9 +1,12 @@
-Rails.application.routes.draw do
+require_relative '../lib/constraints/user_constraint'
 
-  authenticated :user do
-    root to: "users#show"
+Rails.application.routes.draw do
+  # Use the constraint for authenticated users
+  constraints(UserConstraint.new) do
+    root to: "users#show", as: :authenticated_root
   end
 
+  # Default root route
   root to: "static_pages#index"
 
   devise_for :users, controllers: {

@@ -1,18 +1,18 @@
 source 'https://rubygems.org' 
-ruby '2.6.5' 
+ruby '3.1.2'
 
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'rails', '~> 5.2.3' 
+gem 'rails', '~> 6.1.0'
 
 gem 'aws-sdk-s3'
-gem 'bootsnap', '>= 1.1.0', require: false 
+gem 'bootsnap', '>= 1.7.0', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem "chartkick"
 gem "cocoon" 
 gem 'coffee-rails', '~> 4.2' 
 gem "devise", ">= 4.7.1" 
-gem 'devise_invitable', '~> 2.0.0' 
+gem 'devise_invitable', '~> 2.0.5'
 gem "font-awesome-rails" 
 gem 'friendly_id', '~> 5.2.4' 
 gem 'groupdate'
@@ -27,10 +27,16 @@ gem 'sass-rails', '~> 5.0'
 gem 'select2-rails' 
 gem 'sidekiq' 
 gem 'snoop_dogg', '~> 0.1.3' 
-gem "rolify" 
+gem 'rolify', '~> 5.3'
 # gem "trix", "~> 0.11.1" 
 gem 'turbolinks', '~> 5' 
-gem 'uglifier', '>= 1.3.0' 
+gem 'uglifier', '>= 1.3.0'
+
+gem 'mimemagic', '~> 0.4.0'
+gem 'ffi', '~> 1.15'
+gem 'nokogiri', '~> 1.12'
+gem 'globalid', '~> 1.0'
+gem 'webrick', '~> 1.7'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw] 

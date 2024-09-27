@@ -2,7 +2,6 @@ class PollsController < ApplicationController
   helper PollsHelper
 
   before_action :authenticate_user!
-
   before_action :set_poll, except: [:index, :show]
 
   def index
@@ -60,13 +59,15 @@ class PollsController < ApplicationController
       :active,
       :description,
       :title,
-      poll_options_attributes: [:id,
-                                :title,
-                                :description,
-                                :poll_id,
-                                :user_id,
-                                :_destroy,
-                                images: []]
+      poll_options_attributes: [
+        :id,
+        :title,
+        :description,
+        :poll_id,
+        :user_id,
+        :_destroy,
+        images: []
+      ]
     )
   end
 end

@@ -1,7 +1,7 @@
 class PollOption < ApplicationRecord
   has_many_attached :images
 
-  belongs_to :poll, optional: true
+  belongs_to :poll, inverse_of: :poll_options, optional: true
   belongs_to :user
 
   has_many :votes, dependent: :destroy

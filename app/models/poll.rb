@@ -10,10 +10,10 @@ class Poll < ApplicationRecord
 
   validates :title, presence: true
 
-  accepts_nested_attributes_for :poll_options, reject_if: lambda {|attributes| attributes['title'].blank?}, allow_destroy: true
+  accepts_nested_attributes_for :poll_options, reject_if: lambda { |attributes| attributes['title'].blank? }, allow_destroy: true
 
   def timed?
-
+    # Implementation for timed? method
   end
 
   def all_users_voted?
@@ -23,16 +23,16 @@ class Poll < ApplicationRecord
     total_poll_options = self.poll_options.count
 
     self.roles.each do |role|
-      roles_count = roles_count + role.users.count
+      roles_count += role.users.count
     end
 
     self.poll_options.each do |poll_option|
-      user_votes = user_votes + poll_option.votes.count
+      user_votes += poll_option.votes.count
     end
 
-    total_avaliable_votes = roles_count * total_poll_options
+    total_available_votes = roles_count * total_poll_options
 
-    if total_avaliable_votes == user_votes
+    if total_available_votes == user_votes
       self.update(active: false)
     end
   end
