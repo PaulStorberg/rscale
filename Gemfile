@@ -36,7 +36,7 @@ gem 'mimemagic', '~> 0.4.0'
 gem 'ffi', '~> 1.15'
 gem 'nokogiri', '~> 1.12'
 gem 'globalid', '~> 1.0'
-gem 'webrick', '~> 1.7'
+gem 'webrick', '~> 1.8'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw] 
