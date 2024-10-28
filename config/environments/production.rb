@@ -14,9 +14,6 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
-
   # Set default URL options for the mailer.
   config.action_mailer.default_url_options = { host: 'r-scale.com' }
 
