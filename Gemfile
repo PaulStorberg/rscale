@@ -32,7 +32,7 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'sassc', '2.4.0'
-gem 'mimemagic', '0.3.10'
+gem 'mimemagic'
 gem 'ffi', '1.15.5'
 gem 'nokogiri', '~> 1.12'
 gem 'globalid', '~> 1.0'
