@@ -3,7 +3,7 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
-  config.action_mailer.default_url_options = { host: 'r-scale.com', from: 'no.response.rscale@gmail.com' }
+  config.action_mailer.default_url_options = { host: 'r-scale.com', from: 'help.rscale@gmail.com' }
   config.action_controller.default_url_options = { host: 'r-scale.com', protocol: 'https' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
@@ -12,7 +12,7 @@ Rails.application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'gmail.com',
-    user_name:            'no.response.rscale@gmail.com',
+    user_name:            'help.rscale@gmail.com',
     password:             ENV['GMAIL_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true
