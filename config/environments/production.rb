@@ -18,7 +18,7 @@ Rails.application.configure do
   config.force_ssl = true
 
   # Set default URL options for the mailer.
-  config.action_mailer.default_url_options = { host: 'r-scale.com', protocol: 'https' }
+  config.action_mailer.default_url_options = { host: 'r-scale.com' }
 
   # Set default 'from' address for emails.
   config.action_mailer.default_options = { from: 'help.rscale@gmail.com' }
@@ -27,6 +27,9 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
+
+  # Use Rack::SslEnforcer instead
+  config.middleware.use Rack::SslEnforcer, hsts: true
 
   # SMTP settings for Gmail.
   config.action_mailer.smtp_settings = {
