@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'no.response.rscale@gmail.com'
+  default from: 'help.rscale@gmail.com'
   layout 'mailer'
 end
