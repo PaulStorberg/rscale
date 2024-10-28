@@ -17,8 +17,6 @@ Rails.application.configure do
   # Enforce SSL
   config.force_ssl = true
 
-  # Removed trusted_proxies configuration
-
   # Set default URL options for the mailer with the correct protocol.
   config.action_mailer.default_url_options = { host: 'r-scale.com', protocol: 'https' }
 
