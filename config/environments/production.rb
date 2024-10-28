@@ -14,8 +14,15 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  # Set default URL options for the mailer.
-  config.action_mailer.default_url_options = { host: 'r-scale.com' }
+  # **Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.**
+  config.force_ssl = true
+
+  # **Configure trusted proxies to trust Heroku's reverse proxy.**
+  config.action_dispatch.trusted_proxies.clear
+  config.action_dispatch.trusted_proxies << Proc.new { |addr| true }
+
+  # Set default URL options for the mailer with the correct protocol.
+  config.action_mailer.default_url_options = { host: 'r-scale.com', protocol: 'https' }
 
   # Set default 'from' address for emails.
   config.action_mailer.default_options = { from: 'help.rscale@gmail.com' }
@@ -25,8 +32,10 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
-  # Use Rack::SslEnforcer instead
-  config.middleware.use Rack::SslEnforcer, hsts: true
+  # **Remove Rack::SslEnforcer to avoid conflicts with config.force_ssl.**
+  # Ensure you have removed the 'rack-ssl-enforcer' gem from your Gemfile.
+  # If you have it, comment it out or remove it:
+  # gem 'rack-ssl-enforcer'
 
   # SMTP settings for Gmail.
   config.action_mailer.smtp_settings = {
@@ -34,8 +43,8 @@ Rails.application.configure do
     port:                 587,
     domain:               'gmail.com',
     user_name:            'help.rscale@gmail.com',
-    password:             ENV['GMAIL_PASSWORD'],
-    authentication:       'plain',
+    password:             ENV['GMAIL_PASSWORD'], # Ensure this environment variable is set.
+    authentication:       'plain',               # Use 'plain' or 'login' for Gmail.
     enable_starttls_auto: true
   }
 
