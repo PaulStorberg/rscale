@@ -23,7 +23,7 @@ gem 'pg', '>= 1.2'
 gem 'puma', '~> 5.0'
 gem 'pundit'
 gem 'redis', '~> 4.0'
-gem 'sass-rails', '~> 6.0' 
+gem 'sass-rails', '~> 6.0'
 gem 'select2-rails'
 gem 'sidekiq'
 gem 'snoop_dogg', '~> 0.1.3'
@@ -31,9 +31,10 @@ gem 'rolify', '~> 5.3'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'webrick', '~> 1.7'
+gem 'ffi', '~> 1.15.5' # Ensure this line is present
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
 end
@@ -52,4 +53,4 @@ group :test do
   gem 'database_cleaner'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
