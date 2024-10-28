@@ -19,23 +19,17 @@ gem 'groupdate'
 gem 'image_processing', '~> 1.0'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
-gem 'pg', '<= 1.1.3'
-gem 'puma', '~> 3.11'
+gem 'pg', '>= 1.2'
+gem 'puma', '~> 5.0'
 gem 'pundit'
 gem 'redis', '~> 4.0'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0' 
 gem 'select2-rails'
 gem 'sidekiq'
 gem 'snoop_dogg', '~> 0.1.3'
 gem 'rolify', '~> 5.3'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
-
-gem 'sassc', '2.4.0'
-gem 'mimemagic'
-gem 'ffi', '1.15.5'
-gem 'nokogiri', '~> 1.12'
-gem 'globalid', '~> 1.0'
 gem 'webrick', '~> 1.7'
 
 group :development, :test do
@@ -46,15 +40,15 @@ end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen', '>= 3.3.0'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
+  gem 'capybara', '>= 3.35'
   gem 'selenium-webdriver'
-  gem 'webdrivers', '~> 3.0'
+  gem 'webdrivers', '~> 5.0'
   gem 'database_cleaner'
 end
 
