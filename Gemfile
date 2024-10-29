@@ -32,6 +32,7 @@ gem 'turbolinks', '~> 5'
 gem 'webrick', '~> 1.7'
 gem 'ffi', '~> 1.15.5'
 gem 'pry-rails'
+gem 'rack-cors'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
