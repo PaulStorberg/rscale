@@ -1,3 +1,4 @@
+# config/environments/production.rb
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -41,6 +42,9 @@ Rails.application.configure do
 
   # Force all access to the app over SSL.
   config.force_ssl = true
+
+  # Ensure the app knows it's behind a proxy
+  config.action_dispatch.trusted_proxies = %r{^127\.0\.0\.1$|^::1$|^your_proxy_ip$}
 
   # Use the lowest log level to ensure availability of diagnostic information.
   config.log_level = :debug
