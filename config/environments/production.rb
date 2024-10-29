@@ -41,7 +41,7 @@ Rails.application.configure do
   config.active_storage.service = :amazon
 
   # Force all access to the app over SSL.
-  config.force_ssl = true
+  # config.force_ssl = true
 
   # Ensure the app knows it's behind a proxy
   config.action_dispatch.trusted_proxies = %r{^127\.0\.0\.1$|^::1$|^your_proxy_ip$}
