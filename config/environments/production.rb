@@ -87,4 +87,8 @@ Rails.application.configure do
 
   # Enable request forgery protection
   config.action_controller.allow_forgery_protection = true
+
+  # Force all URLs to use HTTPS in production
+  config.action_controller.default_url_options = { protocol: 'https' }
+  config.action_mailer.default_url_options = { protocol: 'https', host: 'r-scale.com' }
 end
