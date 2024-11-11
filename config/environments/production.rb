@@ -44,7 +44,17 @@ Rails.application.configure do
   config.force_ssl = true
 
   # Trust Heroku's SSL termination
-  config.action_dispatch.trusted_proxies = %w[127.0.0.1 ::1 10.0.0.0/8].map { |proxy| IPAddr.new(proxy) }
+  config.action_dispatch.trusted_proxies = [
+    IPAddr.new('10.0.0.0/8'),      # AWS EC2
+    IPAddr.new('172.16.0.0/12'),   # Heroku dynos
+    IPAddr.new('192.168.0.0/16'),  # Private subnets
+    IPAddr.new('127.0.0.1'),       # localhost IPv4
+    IPAddr.new('::1')              # localhost IPv6
+  ]
+
+  # Host configuration
+  config.hosts << "r-scale.com"
+  config.hosts << "www.r-scale.com"
 
   # Use the lowest log level to ensure availability of diagnostic information.
   config.log_level = :debug
