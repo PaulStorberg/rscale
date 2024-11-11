@@ -17,18 +17,23 @@ class Users::SessionsController < Devise::SessionsController
     respond_to do |format|
       if self.resource
         sign_in(resource_name, resource)
-        redirect_url = after_sign_in_path_for(resource)
         
-        # Only force HTTPS in production
+        # Set remember token if in production
         if Rails.env.production?
-          redirect_url = "https://#{request.host}#{redirect_url}" unless redirect_url.start_with?('https://')
+          cookies.signed[:remember_token] = {
+            value: resource.remember_token,
+            secure: true,
+            same_site: :lax,
+            expires: 2.weeks.from_now,
+            httponly: true
+          }
         end
         
-        format.html { redirect_to redirect_url }
+        format.html { redirect_to after_sign_in_path_for(resource) }
         format.json { 
           render json: { 
             success: true, 
-            redirect: redirect_url,
+            redirect: after_sign_in_path_for(resource),
             user: resource.as_json(only: [:id, :email])
           }
         }

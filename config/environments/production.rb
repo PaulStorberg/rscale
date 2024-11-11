@@ -45,8 +45,9 @@ Rails.application.configure do
 
   # Configure SSL options
   config.ssl_options = {
-    redirect: false,  # Disable Rails-level redirects
-    hsts: false      # Disable HSTS for now
+    redirect: true,  # Enable Rails-level redirects
+    hsts: true,     # Enable HSTS
+    secure_cookies: true
   }
 
   # Trust Heroku's SSL termination
