@@ -18,17 +18,6 @@ class Users::SessionsController < Devise::SessionsController
       if self.resource
         sign_in(resource_name, resource)
         
-        # Set remember token if in production
-        if Rails.env.production?
-          cookies.signed[:remember_token] = {
-            value: resource.remember_token,
-            secure: true,
-            same_site: :lax,
-            expires: 2.weeks.from_now,
-            httponly: true
-          }
-        end
-        
         format.html { redirect_to after_sign_in_path_for(resource) }
         format.json { 
           render json: { 
