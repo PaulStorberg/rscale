@@ -43,6 +43,12 @@ Rails.application.configure do
   # Force SSL
   config.force_ssl = true
 
+  # Configure SSL options
+  config.ssl_options = {
+    hsts: { expires: 1.year, subdomains: true },
+    redirect: { status: :moved_permanently }
+  }
+
   # Trust Heroku's SSL termination
   config.action_dispatch.trusted_proxies = %w[127.0.0.1 ::1].map { |proxy| IPAddr.new(proxy) }
 
@@ -81,8 +87,4 @@ Rails.application.configure do
 
   # Enable request forgery protection
   config.action_controller.allow_forgery_protection = true
-
-  # Force all URLs to use HTTPS in production
-  config.action_controller.default_url_options = { protocol: 'https' }
-  config.action_mailer.default_url_options = { protocol: 'https', host: 'r-scale.com' }
 end
