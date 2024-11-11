@@ -1,23 +1,30 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
+  respond_to :html, :json
 
   def new
-    render "sign_in_form.js"
+    respond_to do |format|
+      format.html { super }
+      format.js { render "sign_in_form.js" }
+    end
   end
 
   def create
-    self.resource = warden.authenticate(auth_options)
-  
-    if self.resource
-      set_flash_message(:notice, :signed_in) if is_flashing_format?
-      sign_in(resource_name, resource)
-      yield resource if block_given?
-      respond_with resource, location: after_sign_in_path_for(resource)
-    else
-      redirect_to root_path 
-      flash[:alert] = "Incorrect email or password."
+    self.resource = warden.authenticate!(auth_options)
+    
+    respond_to do |format|
+      if self.resource
+        sign_in(resource_name, resource)
+        format.html { redirect_to after_sign_in_path_for(resource) }
+        format.json { render json: { success: true, redirect: after_sign_in_path_for(resource) } }
+      else
+        format.html { 
+          flash[:alert] = "Incorrect email or password."
+          redirect_to root_path 
+        }
+        format.json { render json: { success: false, errors: ["Invalid credentials"] }, status: :unauthorized }
+      end
     end
   end
 

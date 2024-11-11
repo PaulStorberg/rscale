@@ -78,4 +78,13 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Enable request forgery protection
+  config.action_controller.allow_forgery_protection = true
+
+  # Force SSL
+  config.force_ssl = true
+
+  # Trust Heroku proxy
+  config.action_dispatch.trusted_proxies = %w[127.0.0.1 ::1].map { |proxy| IPAddr.new(proxy) }
 end
