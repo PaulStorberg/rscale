@@ -45,8 +45,8 @@ Rails.application.configure do
 
   # Configure SSL options
   config.ssl_options = {
-    redirect: true,  # Enable Rails-level redirects
-    hsts: true,     # Enable HSTS
+    redirect: { status: 301 },  # Enable Rails-level redirects with 301 status
+    hsts: { subdomains: true }, # Enable HSTS with subdomains
     secure_cookies: true
   }
 

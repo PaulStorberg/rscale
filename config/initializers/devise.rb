@@ -162,7 +162,7 @@ Devise.setup do |config|
 
   # Options to be passed to the created cookie. For instance, you can set
   # secure: true in order to force SSL only cookies.
-  config.rememberable_options = { secure: true }
+  config.rememberable_options = { secure: Rails.env.production? }
 
   # ==> Configuration for :validatable
   # Range for password length.
@@ -296,11 +296,4 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
-
-  config.timeout_in = 2.weeks
-  config.remember_for = 2.weeks
-  config.expire_all_remember_me_on_sign_out = true
-  config.navigational_formats = ['*/*', :html, :json]
-  config.clean_up_csrf_token_on_authentication = false
-  config.sign_out_via = [:delete, :get]
 end
