@@ -43,14 +43,8 @@ Rails.application.configure do
   # Force SSL
   config.force_ssl = true
 
-  # Configure SSL options
-  config.ssl_options = {
-    hsts: { expires: 1.year, subdomains: true },
-    redirect: { status: 301 }
-  }
-
   # Trust Heroku's SSL termination
-  config.action_dispatch.trusted_proxies = %w[127.0.0.1 ::1].map { |proxy| IPAddr.new(proxy) }
+  config.action_dispatch.trusted_proxies = %w[127.0.0.1 ::1 10.0.0.0/8].map { |proxy| IPAddr.new(proxy) }
 
   # Use the lowest log level to ensure availability of diagnostic information.
   config.log_level = :debug
