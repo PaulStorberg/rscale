@@ -75,4 +75,22 @@ Rails.application.configure do
 
   # Enable request forgery protection
   config.action_controller.allow_forgery_protection = true
+
+  # Force SSL
+  # config.force_ssl = true
+  
+  # Change log level to :info for production
+  config.log_level = :info
+  
+  # Enable asset compilation if needed
+  config.assets.compile = true
+  
+  # Add host to asset host
+  config.asset_host = "https://r-scale.com"
+  
+  # Configure caching
+  config.cache_store = :memory_store, { size: 64.megabytes }
+  
+  # Enable serving of static files
+  config.public_file_server.enabled = true
 end
