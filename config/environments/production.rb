@@ -40,20 +40,16 @@ Rails.application.configure do
   # Store uploaded files on the local file system.
   config.active_storage.service = :amazon
 
-  # Force all access to the app over SSL
+  # Force SSL
   config.force_ssl = true
-  config.ssl_options = { 
-    redirect: { 
-      status: 301
-    },
-    hsts: { 
-      expires: 1.year, 
-      subdomains: true, 
-      preload: true 
-    }
+
+  # Configure SSL options
+  config.ssl_options = {
+    hsts: { subdomains: true, preload: true, expires: 1.year },
+    redirect: { status: 301 }
   }
 
-  # Ensure the app knows it's behind a proxy
+  # Trust Heroku's SSL termination
   config.action_dispatch.trusted_proxies = %w[127.0.0.1 ::1].map { |proxy| IPAddr.new(proxy) }
 
   # Use the lowest log level to ensure availability of diagnostic information.
