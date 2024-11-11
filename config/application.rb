@@ -20,6 +20,7 @@ module Rscale
 
     # Only add Cloudflare middleware in production
     if Rails.env.production?
+      require_relative '../config/initializers/cloudflare_middleware'
       config.middleware.insert_before ActionDispatch::RemoteIp, CloudflareMiddleware
     end
   end
