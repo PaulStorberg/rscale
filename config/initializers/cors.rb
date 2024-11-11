@@ -2,7 +2,11 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'localhost:3000', 'r-scale.com', 'www.r-scale.com'
+    origins 'localhost:3000', 
+            'r-scale.com', 
+            'www.r-scale.com', 
+            'https://r-scale.com', 
+            'https://www.r-scale.com'
     
     resource '*',
       headers: :any,
