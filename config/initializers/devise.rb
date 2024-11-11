@@ -301,4 +301,6 @@ Devise.setup do |config|
   config.remember_for = 2.weeks
   config.expire_all_remember_me_on_sign_out = true
   config.navigational_formats = ['*/*', :html, :json]
+  config.clean_up_csrf_token_on_authentication = false
+  config.sign_out_via = [:delete, :get]
 end

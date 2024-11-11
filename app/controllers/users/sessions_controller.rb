@@ -2,6 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   respond_to :html, :json
+  skip_before_action :verify_authenticity_token, only: [:create]
 
   def new
     respond_to do |format|
@@ -17,13 +18,24 @@ class Users::SessionsController < Devise::SessionsController
       if self.resource
         sign_in(resource_name, resource)
         format.html { redirect_to after_sign_in_path_for(resource) }
-        format.json { render json: { success: true, redirect: after_sign_in_path_for(resource) } }
+        format.json { 
+          render json: { 
+            success: true, 
+            redirect: after_sign_in_path_for(resource),
+            user: resource.as_json(only: [:id, :email])
+          }
+        }
       else
         format.html { 
-          flash[:alert] = "Incorrect email or password."
+          flash[:alert] = "Invalid credentials"
           redirect_to root_path 
         }
-        format.json { render json: { success: false, errors: ["Invalid credentials"] }, status: :unauthorized }
+        format.json { 
+          render json: { 
+            success: false, 
+            errors: ["Invalid credentials"] 
+          }, status: :unauthorized 
+        }
       end
     end
   end
