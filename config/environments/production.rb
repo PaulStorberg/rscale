@@ -46,7 +46,7 @@ Rails.application.configure do
   # Configure SSL options
   config.ssl_options = {
     hsts: { expires: 1.year, subdomains: true },
-    redirect: { status: :moved_permanently }
+    redirect: { status: 301 }
   }
 
   # Trust Heroku's SSL termination
