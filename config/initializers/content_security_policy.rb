@@ -25,13 +25,13 @@
 # Rails.application.config.content_security_policy_report_only = true
 
 Rails.application.config.content_security_policy do |policy|
-  policy.default_src :self, :https, :http
-  policy.font_src    :self, :https, :data, :http
-  policy.img_src     :self, :https, :data, :http
+  policy.default_src :self, :https
+  policy.font_src    :self, :https, :data
+  policy.img_src     :self, :https, :data
   policy.object_src  :none
-  policy.script_src  :self, :https, :http
-  policy.style_src   :self, :https, :http, "'unsafe-inline'"
-  policy.connect_src :self, :https, :http
+  policy.script_src  :self, :https
+  policy.style_src   :self, :https, "'unsafe-inline'"
+  policy.connect_src :self, :https
 end
 
 Rails.application.config.content_security_policy_nonce_generator = -> request { SecureRandom.base64(16) }
