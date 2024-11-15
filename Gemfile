@@ -1,16 +1,15 @@
 source 'https://rubygems.org'
-ruby '3.1.4'
+ruby '3.2.2'
 
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'rails', '~> 6.1.7'
+gem 'rails', '~> 7.1.3'
 
 gem 'aws-sdk-s3'
 gem 'bootsnap', '>= 1.7.0', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'chartkick'
 gem 'cocoon'
-gem 'coffee-rails', '~> 4.2'
 gem 'devise', '>= 4.7.1'
 gem 'devise_invitable', '~> 2.0.5'
 gem 'font-awesome-rails'
@@ -20,7 +19,7 @@ gem 'image_processing', '~> 1.0'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'pg', '>= 1.2'
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 6.0'
 gem 'pundit'
 gem 'redis', '~> 4.0'
 gem 'sassc-rails', '~> 2.1'
@@ -34,10 +33,18 @@ gem 'ffi', '~> 1.15.5'
 gem 'pry-rails'
 gem 'rack-cors'
 
+# Add these new gems
+gem 'propshaft'                # Modern asset pipeline
+gem 'cssbundling-rails'        # CSS bundling
+gem 'jsbundling-rails'         # JS bundling
+gem 'stimulus-rails'           # Stimulus integration
+gem 'turbo-rails'              # Turbo integration
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
+  gem 'dotenv-rails'
 end
 
 group :development do

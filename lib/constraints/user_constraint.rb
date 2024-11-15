@@ -1,5 +1,7 @@
 class UserConstraint
   def matches?(request)
-    request.env['warden'].authenticate? && request.env['warden'].user
+    return false unless request.session[:user_id]
+    user = User.find_by(id: request.session[:user_id])
+    user.present?
   end
 end
